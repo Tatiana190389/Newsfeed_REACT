@@ -1,7 +1,11 @@
 {
   "scripts": {
     "start": "NODE_ENV='development' webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "build": "react-scripts build && npm run save-json-api && shx cp build/index.html build/404.html",
+    "predeploy": "rm -rf build && npm run build",
+    "deploy": "gh-pages -d build",
+    "homepage": "https://robzarel.github.io/gh-pages-demo"
   },
   "dependencies": {
     "@babel/cli": "^7.23.4",
@@ -16,5 +20,9 @@
     "webpack": "^5.90.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "shx": "^0.3.4"
   }
 }
